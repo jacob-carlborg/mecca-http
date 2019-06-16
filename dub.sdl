@@ -1,0 +1,7 @@
+name "mecca-http"
+description "A minimal D application."
+authors "Jacob Carlborg"
+copyright "Copyright © 2019, Jacob Carlborg"
+license "proprietary"
+dependency "mecca" path="/Users/doob/development/d/mecca"
+dflags "-preview=dip1000"

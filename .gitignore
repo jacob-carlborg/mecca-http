@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/mecca-http
+mecca-http.so
+mecca-http.dylib
+mecca-http.dll
+mecca-http.a
+mecca-http.lib
+mecca-http-test-*
+*.exe
+*.o
+*.obj
+*.lst
