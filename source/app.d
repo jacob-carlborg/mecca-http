@@ -167,7 +167,6 @@ struct WebsocketConnection
         {
             bytesWritten = socket.write(data, timeout);
             data = data[bytesWritten .. $];
-            writefln!"writer written=%s"(bytesWritten);
         }
     }
 
