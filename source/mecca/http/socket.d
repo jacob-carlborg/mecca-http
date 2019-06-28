@@ -23,6 +23,10 @@ struct Socket
      *  timeout = how long to wait before timing out
      *
      * Returns: `true` if all data was written
+     *
+     * Throws:
+     *  * May throw an `ErrnoException` in case of error
+     *  * Will throw `TimeoutExpired` if the timeout expired
      */
     bool send(
         const void[] data,
@@ -62,6 +66,10 @@ struct Socket
      *
      * Returns: `true` if a header end sentinel was received. `false` if the
      *  connection was closed before receiving the end sentinel.
+     *
+     * Throws:
+     *  * May throw an `ErrnoException` in case of error
+     *  * Will throw `TimeoutExpired` if the timeout expired
      */
     bool receiveHeader(void[] buffer, int flags = 0,
         Timeout timeout = Timeout.infinite) @nogc @safe
@@ -98,6 +106,10 @@ struct Socket
      *
      * Returns: `true` if a header end sentinel was received. `false` if the
      *  connection was closed before receiving the end sentinel.
+     *
+     * Throws:
+     *  * May throw an `ErrnoException` in case of error
+     *  * Will throw `TimeoutExpired` if the timeout expired
      */
     private bool receiveUntil(alias predicate)(void[] buffer, int flags = 0,
         Timeout timeout = Timeout.infinite) @nogc @safe
