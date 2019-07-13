@@ -10,7 +10,7 @@ module mecca.http.request;
 struct Request
 {
     import mecca.containers.arrays : FixedString;
-    import mecca.http.header;
+    import mecca.http.headers;
 
     enum Method
     {
@@ -68,4 +68,10 @@ struct Request
 
         return cast(string) data.array;
     }
+}
+
+private void append(String)(ref String str, string data) @safe
+{
+    foreach (char c; data)
+        str ~= c;
 }

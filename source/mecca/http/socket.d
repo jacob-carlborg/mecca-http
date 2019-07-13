@@ -75,19 +75,19 @@ struct Socket
         Timeout timeout = Timeout.infinite) @nogc @safe
     {
         import core.sys.posix.sys.types : ssize_t;
-        import mecca.http.header : Header;
+        import mecca.http.headers : endSentinel;
 
         static const(void[]) end(const void[] buffer, size_t position)
         {
-            return buffer[position - Header.endSentinel.length .. position];
+            return buffer[position - endSentinel.length .. position];
         }
 
         static bool hasReceivedHeaderSentinel(
             const void[] buffer, size_t position, ssize_t bytesRead
         )
         {
-            return bytesRead >= Header.endSentinel.length
-                && end(buffer, position) == Header.endSentinel;
+            return bytesRead >= endSentinel.length
+                && end(buffer, position) == endSentinel;
         }
 
         return receiveUntil!hasReceivedHeaderSentinel(buffer, flags, timeout);

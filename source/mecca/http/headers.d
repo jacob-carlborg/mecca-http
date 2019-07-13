@@ -7,11 +7,11 @@
  */
 module mecca.http.headers;
 
+package enum immutable(void)[] endSentinel = "\r\n\r\n";
+
 struct Headers(size_t count)
 {
     import mecca.containers.arrays : FixedArray;
-
-    package enum immutable(void)[] endSentinel = "\r\n\r\n";
 
     private struct Pair
     {
