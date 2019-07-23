@@ -14,14 +14,14 @@ struct Request
 
     enum Method
     {
-        get,
-        post,
-        head,
-        delete_,
-        put,
-        patch,
         connect,
+        delete_,
+        get,
+        head,
         options,
+        patch,
+        post,
+        put,
         trace
     }
 
